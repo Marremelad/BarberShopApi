@@ -1,4 +1,5 @@
 using BarberShopApi.Data;
+using BarberShopApi.Endpoints;
 using Microsoft.EntityFrameworkCore;
 
 namespace BarberShopApi;
@@ -33,6 +34,8 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
+        
+        BookingEndpoints.RegisterEndpoints(app);
         
         app.Run();
     }
