@@ -23,5 +23,19 @@ public class BookingEndpoints
                     .ToListAsync()
             );
         });
+
+        app.MapDelete("/delete-booking/{id:int}", async (BarberShopApiDbContext context, int id) =>
+        {
+            var booking = await context.Bookings
+                .Where(b => b.Id == id)
+                .FirstOrDefaultAsync();
+
+            if (booking == null) return Results.NotFound("Not found");
+
+            context.Bookings.Remove(booking);
+            await context.SaveChangesAsync();
+
+            return Results.Ok("Booking deleted successfully");
+        });
     }
 }
