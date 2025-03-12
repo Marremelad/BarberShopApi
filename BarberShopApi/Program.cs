@@ -37,7 +37,6 @@ public class Program
         
         app.Use(async (context, next) =>
         {
-            Console.WriteLine("Request Received.");
             var configuredApiKey = builder.Configuration["ApiKey"];
             var apiKey = context.Request.Headers["X-API-Key"].FirstOrDefault();
 
