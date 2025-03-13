@@ -1,5 +1,4 @@
 ﻿using BarberShopApi.Data;
-using BarberShopApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BarberShopApi.Endpoints;
